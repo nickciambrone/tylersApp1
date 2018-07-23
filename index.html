@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body background="/forest">
+    <div class="jumbotron jumbotron-fluid" style="margin-top: 20px;">
+        <div class="container">
+            <h1 class="display-4">Game of Thrones Daily:</h1>
+            <hr class="my-4">
+            <h3>Facts, trivia questions, blurbs, theories, and more!</h3>
+            <p class="lead">If you love Game of Thrones, enter your email below for daily entertainment...</p>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="text" id="email" placeholder="example@gameofthronesdaily.com">
+                    <button type="button" class="btn btn-dark" id="submitEmail">Dark</button>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("#submitEmail").on("click", function () {
+            var email = {
+                email:$("#email").val().trim()
+            }
+          
+            $.post("http://localhost:9950/new", email).done(function (data) {
+            });
+
+        })
+    </script>
+</body>
+
+</html>
